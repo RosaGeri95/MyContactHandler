@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             x:Class="MyContactsHandler.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            
+            <Style x:Key="labelStyle"
+                   TargetType="Label">
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="FontSize"
+                        Value="24" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+            </Style>
+            
+            <Style x:Key="labelValueStyle"
+                   TargetType="Label">
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="FontSize"
+                        Value="14" />
+                <Setter Property="TextColor"
+                        Value="Blue" />
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

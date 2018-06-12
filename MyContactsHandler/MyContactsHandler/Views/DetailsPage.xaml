@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MyContactsHandler.Views.DetailsPage"
+             Title="{Binding Title}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <!-- For background color -->
+        <BoxView Color="LightBlue"
+                 Grid.Row="0"
+                 Grid.Column="0" 
+                 Grid.ColumnSpan="2"/>
+        <BoxView Color="LightGreen"
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2" />
+        <BoxView Color="LightGray"
+                 Grid.Row="2"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2" />
+        <BoxView Color="LightYellow"
+                 Grid.Row="3"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2" />
+
+        
+        <Label Text="{Binding DetailedContactInfo.Name}"
+               Grid.ColumnSpan="2"
+               Style="{StaticResource labelStyle}"
+               TextColor="Red"
+               FontSize="32"
+               VerticalOptions="Center"/>
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Text="Phone Numbers:" 
+               Style="{StaticResource labelStyle}"/>
+        <ListView Grid.Row="1"
+                  Grid.Column="1"
+                  ItemsSource="{Binding DetailedContactInfo.PhoneNumbers}"
+                  RowHeight="60" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding}" Style="{StaticResource labelValueStyle}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Text="Emails:"
+               Style="{StaticResource labelStyle}"/>
+        <ListView Grid.Row="2"
+                  Grid.Column="1"
+                  ItemsSource="{Binding DetailedContactInfo.Emails}"
+                  RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding}"
+                               Style="{StaticResource labelValueStyle}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               Text="Addresses:"
+               Style="{StaticResource labelStyle}" />
+        <ListView Grid.Row="3"
+                  Grid.Column="1"
+                  ItemsSource="{Binding DetailedContactInfo.Addresses}"
+                  RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding}"
+                               Style="{StaticResource labelValueStyle}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+    
+</ContentPage>
